@@ -1,3 +1,4 @@
+require 'pry'
 
 class SubRip
 
@@ -11,15 +12,21 @@ class SubRip
 
 end
 
-
 class SubRipHandler
-	def initialize
+
+	def initialize source
 		@source = source
 	end
-	
-	source = IO.Read("subtitle.srt").split
+
+	def readFile
+		@source = IO.read(@source)
+	end
 
 end
 
+srh = SubRipHandler.new "subtitle.srt"
+srh.readFile
+
+binding.pry
 
 
